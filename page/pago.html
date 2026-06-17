@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTER-EGO | Checkout Seguro</title>
+    <link rel="icon" type="image/png" sizes="100x100" href="./archivos/Logo Negativo.png">
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+    <div id="contenedor-principal" class="checkout-contenedor-flex">
+        
+        <!-- COLUMNA IZQUIERDA: MÉTODOS DE PAGO -->
+        <main class="checkout-col-metodos">
+            <div class="checkout-header-regreso">
+                <a href="../index.html" class="enlace-volver-tienda">← Volver a la tienda</a>
+                <h2>Método de Pago</h2>
+                <p>Todas las transacciones son seguras.</p>
+            </div>
+
+            <div class="pago-selectores-grupo">
+                <button class="tab-pago-opcion activa" onclick="conmutarMetodoPago('tarjeta', this)">💳 Tarjeta</button>
+                <button class="tab-pago-opcion" onclick="conmutarMetodoPago('yape', this)">📱 Yape / Plin</button>
+                <button class="tab-pago-opcion" onclick="conmutarMetodoPago('banco', this)">🏛️ Transferencia</button>
+            </div>
+
+            <!-- TARJETA -->
+            <div id="pago-bloque-tarjeta" class="bloque-pago-vista">
+                <form class="formulario-checkout-campos" onsubmit="return false;">
+                    <div class="campo-fila-unica">
+                        <label>Número de tarjeta</label>
+                        <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                    </div>
+                    <div class="campo-grilla-doble">
+                        <div><label>Vencimiento</label><input type="text" placeholder="MM/AA" maxlength="5" required></div>
+                        <div><label>CVV</label><input type="password" placeholder="123" maxlength="4" required></div>
+                    </div>
+                    <div class="campo-fila-unica">
+                        <label>Nombre del titular</label>
+                        <input type="text" placeholder="Nombre completo" required>
+                    </div>
+                    <button type="submit" class="btn-finalizar-pago-global">Pagar S/ <span class="monto-dinamico-boton">0.00</span></button>
+                </form>
+            </div>
+
+            <!-- YAPE -->
+            <div id="pago-bloque-yape" class="bloque-pago-vista vista-pago-oculta">
+                <div class="instrucciones-qr-bloque">
+                    <p>Escanea este código QR con tu app de Yape o Plin:</p>
+                    <div class="qr-imagen-simulada">
+                        <span style="font-size: 5rem;">📱</span>
+                    </div>
+                    <form class="formulario-checkout-campos" onsubmit="return false;">
+                        <div class="campo-fila-unica"><label>Celular de origen</label><input type="text" placeholder="999 999 999" required></div>
+                        <div class="campo-fila-unica"><label>Código de Operación</label><input type="text" placeholder="Ej: 485930" required></div>
+                        <button type="submit" class="btn-finalizar-pago-global">Confirmar Yapeo</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BANCO -->
+            <div id="pago-bloque-banco" class="bloque-pago-vista vista-pago-oculta">
+                <div class="cuentas-bancarias-lista">
+                    <p>Realiza tu depósito a nuestras cuentas:</p>
+                    <div class="tarjeta-banco-info"><strong>BCP Soles:</strong> <p>191-94850392-0-44</p></div>
+                    <form class="formulario-checkout-campos" onsubmit="return false;">
+                        <div class="campo-fila-unica" style="margin-top:10px;"><label>Número de Operación</label><input type="text" placeholder="Ej: 0239485" required></div>
+                        <button type="submit" class="btn-finalizar-pago-global">Verificar Transferencia</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <!-- COLUMNA DERECHA: RESUMEN DEL PEDIDO -->
+        <aside class="checkout-col-resumen">
+            <h3>Tu Pedido</h3>
+            <div id="checkout-productos-lista"></div>
+            <div class="checkout-totales-caja">
+                <div class="checkout-total-linea"><span>Subtotal</span><span id="chk-subtotal">S/ 0.00</span></div>
+                <div class="checkout-total-linea final-total"><span>Total a pagar</span><span id="chk-total-global">S/ 0.00</span></div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const carritoGuardado = JSON.parse(localStorage.getItem("carrito_alterego")) || [];
+            const listaContenedor = document.getElementById("checkout-productos-lista");
+            let acumTotal = 0;
+
+            if (carritoGuardado.length === 0) {
+                listaContenedor.innerHTML = `
+                    <div style="text-align:center; padding:30px 0; color:rgba(255,255,255,0.3); font-size:0.88rem;">
+                        <div style="font-size:2rem; margin-bottom:8px;">🛒</div>
+                        No hay productos en el carrito
+                    </div>`;
+            } else {
+                carritoGuardado.forEach(prod => {
+                    const subtotalProd = prod.precio * prod.cantidad;
+                    acumTotal += subtotalProd;
+                    listaContenedor.insertAdjacentHTML("beforeend", `
+                        <div class="checkout-item-producto">
+                            <div class="checkout-item-foto">${prod.foto}</div>
+                            <div class="checkout-item-info">
+                                <div class="checkout-item-nombre">${prod.nombre}</div>
+                                <div class="checkout-item-cant">Cant: ${prod.cantidad} · ${prod.marca}</div>
+                            </div>
+                            <span class="checkout-item-precio">S/ ${subtotalProd.toFixed(2)}</span>
+                        </div>
+                    `);
+                });
+            }
+
+            document.getElementById("chk-subtotal").innerText = `S/ ${acumTotal.toFixed(2)}`;
+            document.getElementById("chk-total-global").innerText = `S/ ${acumTotal.toFixed(2)}`;
+            document.querySelectorAll(".monto-dinamico-boton").forEach(b => b.innerText = acumTotal.toFixed(2));
+        });
+
+        function conmutarMetodoPago(metodo, btnActivo) {
+            document.querySelectorAll(".bloque-pago-vista").forEach(b => b.classList.add("vista-pago-oculta"));
+            document.querySelectorAll(".tab-pago-opcion").forEach(t => t.classList.remove("activa"));
+            document.getElementById("pago-bloque-" + metodo).classList.remove("vista-pago-oculta");
+            btnActivo.classList.add("activa");
+        }
+    </script>
+</body>
+</html>

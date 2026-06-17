@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTER-EGO | Salón de Belleza</title>
+    <link rel="icon" type="image/png" sizes="100x100" href="../archivos/Logo Negativo.png">
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+ 
+    <div id="contenedor-principal">
+        
+        <!-- ENCABEZADO -->
+        <header id="menu-navegacion">
+ 
+            <!-- BOTÓN HAMBURGUESA DE CATEGORÍAS -->
+            <div class="menu-desplegable-contenedor menu-hamburguesa-lateral">
+                <button class="boton-hamburguesa" id="btn-categorias" aria-label="Abrir categorías">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="opciones-cuenta-flotante" id="menu-categorias-lista">
+ 
+                    <div class="cat-header">Mujer</div>
+                    <a href="../page/champus-mujer.html">🧴 Champús</a>
+                    <a href="../page/acondicionadores-mujer.html">✨ Acondicionadores</a>
+                    <a href="../page/mascarillas-mujer.html">🍯 Mascarillas</a>
+                    <a href="../page/tintes-mujer.html">🧪 Tintes</a>
+                    <a href="../page/peroxidos-mujer.html">💧 Peróxidos</a>
+ 
+                    <div class="cat-header">Hombre</div>
+                    <a href="../page/champus-hombre.html">🧴 Champús</a>
+                    <a href="../page/acondicionadores-hombre.html">✨ Acondicionadores</a>
+                    <a href="../page/mascarillas-hombre.html">🍯 Mascarillas</a>
+                    <a href="../page/tintes-hombre.html">🧪 Tintes</a>
+                    <a href="../page/peroxidos-hombre.html">💧 Peróxidos</a>
+ 
+                </div>
+            </div>
+ 
+            <div class="marca-logo">
+                <img src="../archivos/Logo Alter Ego Principal - Blanco.png" alt="Logo Alter Ego">
+            </div>
+ 
+            <div id="caja-buscador-nav">
+                <input type="text" placeholder="Buscar champú, tinte, mascarilla...">
+                <button class="boton-buscar-nav">🔍</button>
+            </div>
+            <a href="../index.html" class="boton-pedidos" style="margin-left: 10px;"> Inicio</a>
+            <div class="barra-navegacion-derecha">
+                <a href="./pedidos.html" class="boton-pedidos">📦 Mis Pedidos</a>
+ 
+                <!-- BOTÓN PERFIL -->
+                <div class="menu-desplegable-contenedor">
+                    <button class="boton-cuenta" id="btn-mi-cuenta">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        Perfil
+                    </button>
+                    <div class="opciones-cuenta-flotante" id="menu-opciones-cuenta">
+                        <a href="#" id="opcion-ingresar">Iniciar Sesión / Registrarse</a>
+                    </div>
+                </div>
+ 
+                <!-- CARRITO CON PANEL DESPLEGABLE -->
+                <div class="contenedor-carrito">
+                    <a href="#" class="boton-carrito">
+                        🛒 <span class="contador-carrito">0</span>
+                    </a>
+                    <div class="panel-carrito" id="panel-carrito">
+                        <div class="panel-carrito-header">
+                            <h4>🛒 Mi carrito</h4>
+                            <button class="btn-limpiar-carrito" id="btn-limpiar-carrito">Vaciar todo</button>
+                        </div>
+                        <div class="lista-items-carrito" id="lista-items-carrito">
+                            <div class="carrito-vacio-msg">
+                                <span class="icono-vacio">🛒</span>
+                                Tu carrito está vacío
+                            </div>
+                        </div>
+                        <div class="panel-carrito-footer">
+                            <div class="carrito-total-linea">
+                                <span>Total</span>
+                                <span class="carrito-total-monto" id="carrito-total-monto">S/ 0.00</span>
+                            </div>
+                            <button class="btn-finalizar-compra" id="btn-finalizar-compra" disabled>
+                                Finalizar compra →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENIDO: CHAMPÚS MUJERES -->
+        <section class="seccion-anuncios">
+            <div class="titulo-seccion" style="padding: 20px 40px;">Champús para Mujeres</div>
+            
+            <div class="grilla-anuncios">
+                <!-- 16 PRODUCTOS -->
+                <script>
+                    const productos = [
+                        {nom: "Absolut Repair", marca: "L'Oréal", pre: 115}, {nom: "Frizz Dismiss", marca: "Redken", pre: 88},
+                        {nom: "Blondifier Cool", marca: "L'Oréal", pre: 105}, {nom: "Color Brilliance", marca: "Wella", pre: 95},
+                        {nom: "All Soft Shampoo", marca: "Redken", pre: 110}, {nom: "Invigo Nutri", marca: "Wella", pre: 85},
+                        {nom: "Pro Longer", marca: "L'Oréal", pre: 120}, {nom: "Extreme Length", marca: "Redken", pre: 118},
+                        {nom: "Oil Reflections", marca: "Wella", pre: 98}, {nom: "Vitamino Color", marca: "L'Oréal", pre: 108},
+                        {nom: "Volume Injection", marca: "Redken", pre: 112}, {nom: "Elements Renewing", marca: "Wella", pre: 90},
+                        {nom: "Scalp Advanced", marca: "L'Oréal", pre: 115}, {nom: "Curvaceous", marca: "Redken", pre: 105},
+                        {nom: "Fusion Intense", marca: "Wella", pre: 99}, {nom: "Silver Shampoo", marca: "L'Oréal", pre: 102}
+                    ];
+                    
+                    productos.forEach((p, i) => {
+                        document.write(`
+                            <div class="tarjeta-producto" data-id="m${i+1}">
+                                <div class="contenedor-foto">🧴</div>
+                                <div class="datos-producto">
+                                    <div class="nombre-producto">${p.nom} 300ml</div>
+                                    <div class="ciudad-producto">${p.marca}</div>
+                                    <div class="precio-producto">S/ ${p.pre.toFixed(2)}</div>
+                                    <button class="btn-agregar-carrito">Añadir al carrito</button>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+        </section>
+
+        <!-- PIE DE PÁGINA -->
+        <footer id="pie-pagina">
+            <div class="contenido-footer">
+                <p>&copy; 2026 ALTER-EGO. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+<!-- MODAL LOGIN -->
+    <div id="modal-login-pantalla" class="modal-oculto-capa">
+        <div class="tarjeta-modal-login">
+            <button id="boton-cerrar-modal" class="cerrar-modal-x">×</button>
+            <div id="vista-iniciar-sesion">
+                <h2 class="modal-titulo">Ingresar a AlterEgo</h2>
+                <p class="modal-subtexto">Accede para gestionar tus compras capilares.</p>
+                <button class="btn-login-google">🌐 Continuar con Gmail</button>
+                <div class="divisor-linea"><span>o continuar con correo</span></div>
+                <form class="formulario-modal" onsubmit="return false;">
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <div class="opciones-recuerdame">
+                        <label class="contenedor-checkbox">
+                            <input type="checkbox" id="check-mantener-sesion"> Mantener cuenta abierta
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-principal-modal">Iniciar Sesión</button>
+                </form>
+                <p class="texto-cambio-vista">¿No tienes cuenta? <a href="#" id="enlace-ir-a-registro">Regístrate aquí</a></p>
+            </div>
+            <div id="vista-registrarse" class="vista-oculta">
+                <h2 class="modal-titulo">Crear Cuenta</h2>
+                <p class="modal-subtexto">Únete para recibir ofertas y registrar tus pedidos.</p>
+                <form class="formulario-modal" onsubmit="return false;">
+                    <input type="text" placeholder="Nombres y Apellidos" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Crea una contraseña" required>
+                    <button type="submit" class="btn-principal-modal">Registrarme</button>
+                </form>
+                <p class="texto-cambio-vista">¿Ya tienes cuenta? <a href="#" id="enlace-ir-a-login">Inicia sesión aquí</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- BOTÓN WHATSAPP -->
+    <a href="https://api.whatsapp.com/send?phone=51940246084" class="whatsapp-flotante" target="_blank">
+        <img src="../archivos/whatsapp.png" alt="WhatsApp">
+    </a>
+
+    <script src="../js/funciones.js"></script>
+</body>
+</html>

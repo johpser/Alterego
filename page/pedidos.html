@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTER-EGO | Mis Pedidos</title>
+    <link rel="icon" type="image/png" sizes="100x100" href="../archivos/Logo Negativo.png">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        /* Estilos específicos para la página de pedidos */
+        .contenedor-pedidos { padding: 40px; }
+        .tarjeta-pedido {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 20px;
+            color: #f0ede8;
+        }
+        .tarjeta-pedido h3 { color: #dfc39e; margin-bottom: 10px; }
+        .tarjeta-pedido ul { list-style: none; margin-top: 10px; }
+        .tarjeta-pedido li { padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+
+    <div id="contenedor-principal">
+        <header id="menu-navegacion">
+            <div class="marca-logo">
+                <img src="../archivos/Logo Alter Ego Principal - Blanco.png" alt="Logo Alter Ego">
+            </div>
+            <a href="../index.html" class="enlace-volver-tienda">← Volver a la tienda</a>
+        </header>
+
+        <section class="contenedor-pedidos">
+            <h2 class="titulo-seccion">Historial de mis compras</h2>
+            <div id="lista-pedidos">
+                <!-- Aquí se cargarán los pedidos mediante JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const contenedor = document.getElementById("lista-pedidos");
+            const historial = JSON.parse(localStorage.getItem("historial_pedidos")) || [];
+
+            if (historial.length === 0) {
+                contenedor.innerHTML = "<p>Aún no has realizado ninguna compra.</p>";
+                return;
+            }
+
+            historial.forEach(pedido => {
+                const divPedido = document.createElement("div");
+                divPedido.className = "tarjeta-pedido";
+                divPedido.innerHTML = `
+                    <h3>Pedido del ${pedido.fecha}</h3>
+                    <p><strong>Total pagado:</strong> ${pedido.total}</p>
+                    <ul>
+                        ${pedido.productos.map(p => `<li>${p.nombre} (x${p.cantidad}) - S/ ${(p.precio * p.cantidad).toFixed(2)}</li>`).join('')}
+                    </ul>
+                `;
+                contenedor.appendChild(divPedido);
+            });
+        });
+    </script>
+</body>
+</html>

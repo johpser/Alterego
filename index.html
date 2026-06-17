@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTER-EGO | Salón de Belleza</title>
+    <link rel="icon" type="image/png" sizes="100x100" href="./archivos/Logo Negativo.png">
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+ 
+    <div id="contenedor-principal">
+        
+        <!-- ENCABEZADO -->
+        <header id="menu-navegacion">
+ 
+            <!-- BOTÓN HAMBURGUESA DE CATEGORÍAS -->
+            <div class="menu-desplegable-contenedor menu-hamburguesa-lateral">
+                <button class="boton-hamburguesa" id="btn-categorias" aria-label="Abrir categorías">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="opciones-cuenta-flotante" id="menu-categorias-lista">
+ 
+                    <div class="cat-header">Mujer</div>
+                    <a href="./page/champus-mujer.html">🧴 Champús</a>
+                    <a href="./page/acondicionadores-mujer.html">✨ Acondicionadores</a>
+                    <a href="./page/mascarillas-mujer.html">🍯 Mascarillas</a>
+                    <a href="./page/tintes-mujer.html">🧪 Tintes</a>
+                    <a href="./page/peroxidos-mujer.html">💧 Peróxidos</a>
+ 
+                    <div class="cat-header">Hombre</div>
+                    <a href="./page/champus-hombre.html">🧴 Champús</a>
+                    <a href="./page/acondicionadores-hombre.html">✨ Acondicionadores</a>
+                    <a href="./page/mascarillas-hombre.html">🍯 Mascarillas</a>
+                    <a href="./page/tintes-hombre.html">🧪 Tintes</a>
+                    <a href="./page/peroxidos-hombre.html">💧 Peróxidos</a>
+ 
+                </div>
+            </div>
+ 
+            <div class="marca-logo">
+                <img src="./archivos/Logo Alter Ego Principal - Blanco.png" alt="Logo Alter Ego">
+            </div>
+ 
+            <div id="caja-buscador-nav">
+                <input type="text" placeholder="Buscar champú, tinte, mascarilla...">
+                <button class="boton-buscar-nav">🔍</button>
+            </div>
+            
+            <div class="barra-navegacion-derecha">
+                <a href="./page/pedidos.html" class="boton-pedidos">📦 Mis Pedidos</a>
+ 
+                <!-- BOTÓN PERFIL -->
+                <div class="menu-desplegable-contenedor">
+                    <button class="boton-cuenta" id="btn-mi-cuenta">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                        </svg>
+                        Perfil
+                    </button>
+                    <div class="opciones-cuenta-flotante" id="menu-opciones-cuenta">
+                        <a href="#" id="opcion-ingresar">Iniciar Sesión / Registrarse</a>
+                    </div>
+                </div>
+ 
+                <!-- CARRITO CON PANEL DESPLEGABLE -->
+                <div class="contenedor-carrito">
+                    <a href="#" class="boton-carrito">
+                        🛒 <span class="contador-carrito">0</span>
+                    </a>
+                    <div class="panel-carrito" id="panel-carrito">
+                        <div class="panel-carrito-header">
+                            <h4>🛒 Mi carrito</h4>
+                            <button class="btn-limpiar-carrito" id="btn-limpiar-carrito">Vaciar todo</button>
+                        </div>
+                        <div class="lista-items-carrito" id="lista-items-carrito">
+                            <div class="carrito-vacio-msg">
+                                <span class="icono-vacio">🛒</span>
+                                Tu carrito está vacío
+                            </div>
+                        </div>
+                        <div class="panel-carrito-footer">
+                            <div class="carrito-total-linea">
+                                <span>Total</span>
+                                <span class="carrito-total-monto" id="carrito-total-monto">S/ 0.00</span>
+                            </div>
+                            <button class="btn-finalizar-compra" id="btn-finalizar-compra" disabled>
+                                Finalizar compra →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- CARRETE DE IMÁGENES -->
+        <section class="carrete-contenedor" id="carrusel-auto">
+            <div class="carrete-diapositivas">
+ 
+                <a href="./page/"
+                   class="diapositiva activa"
+                   style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.65)), url('./archivos/american crew.jpg');">
+                    <div class="contenido-diapositiva">
+                        <h2>L'Oréal Professionnel</h2>
+                        <p>Reparación profunda y brillo inmediato para cabellos dañados.</p>
+                    </div>
+                </a>
+ 
+                <a href="./page/productos.html?marca=redken"
+                   class="diapositiva diapositiva-video">
+                    <video class="video-fondo" autoplay muted loop playsinline>
+                        <source src="./archivos/videorevlon.mp4" type="video/mp4">
+                    </video>
+                    <div class="overlay-video"></div>
+                    <div class="contenido-diapositiva">
+                        <h2>Redken Extreme</h2>
+                        <p>Fortalece y cuida el cabello debilitado con tecnología profesional.</p>
+                    </div>
+                </a>
+ 
+                <a href="./page/productos.html?marca=wella"
+                   class="diapositiva"
+                   style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.65)), url('./archivos/revlon imagen.jpg');">
+                    <div class="contenido-diapositiva">
+                        <h2>Wella Professionals</h2>
+                        <p>Coloración perfecta y vibrante que transforma tu estilo.</p>
+                    </div>
+                </a>
+ 
+            </div>
+            <div class="carrete-indicadores" id="carrusel-puntitos">
+                <span class="punto activo"></span>
+                <span class="punto"></span>
+                <span class="punto"></span>
+            </div>
+        </section>
+ 
+        <!-- TÍTULO MUJERES -->
+        <div class="titulo-seccion" style="padding: 40px 40px 0 40px;">Mujeres</div>
+ 
+        <section class="contenedor-categorias">
+            <a href="./page/champus-mujer.html" class="tarjeta-categoria">
+                <div class="icono-categoria">🧴</div>
+                <div class="nombre-categoria">Champús</div>
+            </a>
+            <a href="./page/acondicionadores-mujer.html" class="tarjeta-categoria">
+                <div class="icono-categoria">✨</div>
+                <div class="nombre-categoria">Acondicionadores</div>
+            </a>
+            <a href="./page/mascarillas-mujer.html" class="tarjeta-categoria">
+                <div class="icono-categoria">🍯</div>
+                <div class="nombre-categoria">Mascarillas</div>
+            </a>
+            <a href="./page/tintes-mujer.html" class="tarjeta-categoria">
+                <div class="icono-categoria">🧪</div>
+                <div class="nombre-categoria">Tintes</div>
+            </a>
+            <a href="./page/peroxidos-mujer.html" class="tarjeta-categoria">
+                <div class="icono-categoria">💧</div>
+                <div class="nombre-categoria">Peróxidos</div>
+            </a>
+        </section>
+ 
+        <!-- TÍTULO HOMBRES -->
+        <div class="titulo-seccion" style="padding: 40px 40px 0 40px;">HOMBRES</div>
+ 
+        <section class="contenedor-categorias">
+            <a href="./page/champus-hombre.html" class="tarjeta-categoria">
+                <div class="icono-categoria">🧴</div>
+                <div class="nombre-categoria">Champús</div>
+            </a>
+            <a href="./page/acondicionadores-hombre.html" class="tarjeta-categoria">
+                <div class="icono-categoria">✨</div>
+                <div class="nombre-categoria">Acondicionadores</div>
+            </a>
+            <a href="./page/mascarillas-hombre.html" class="tarjeta-categoria">
+                <div class="icono-categoria">🍯</div>
+                <div class="nombre-categoria">Mascarillas</div>
+            </a>
+            <a href="./page/tintes-hombre.html" class="tarjeta-categoria">
+                <div class="icono-categoria">🧪</div>
+                <div class="nombre-categoria">Tintes</div>
+            </a>
+            <a href="./page/peroxidos-hombre.html" class="tarjeta-categoria">
+                <div class="icono-categoria">💧</div>
+                <div class="nombre-categoria">Peróxidos</div>
+            </a>
+        </section>
+ 
+        <!-- PRODUCTOS EN TENDENCIA -->
+        <section class="seccion-anuncios">
+            <div class="titulo-seccion">Productos en Tendencia</div>
+            <div class="grilla-anuncios">
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto"><span class="alerta-punto"></span>🧴</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Champú Absolut Repair 300ml</div>
+                        <div class="ciudad-producto">L'Oréal Professionnel</div>
+                        <div class="precio-producto">S/ 115.00</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto"><span class="alerta-punto"></span>🧴</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Acondicionador Extreme 250ml</div>
+                        <div class="ciudad-producto">Redken</div>
+                        <div class="precio-producto">S/ 120.00</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto">🧪</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Tinte Koleston Perfect Me+</div>
+                        <div class="ciudad-producto">Wella Professionals</div>
+                        <div class="precio-producto">S/ 45.00</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto"><span class="alerta-punto"></span>💧</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Peróxido Welloxon 20 Vol.</div>
+                        <div class="ciudad-producto">Wella Professionals</div>
+                        <div class="precio-producto">S/ 35.00</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- PROMOCIONES EXCLUSIVAS -->
+        <section class="seccion-anuncios espaciado-seccion">
+            <div class="titulo-seccion">Promociones Exclusivas</div>
+            <div class="grilla-anuncios">
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto"><span class="etiqueta-descuento">-15%</span>🍯</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Mascarilla Mythic Oil 200ml</div>
+                        <div class="ciudad-producto">L'Oréal Professionnel</div>
+                        <div class="precio-producto"><span class="precio-antes">S/ 140.00</span> S/ 119.00</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto"><span class="etiqueta-descuento">-20%</span>🧴</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Champú Frizz Dismiss 300ml</div>
+                        <div class="ciudad-producto">Redken</div>
+                        <div class="precio-producto"><span class="precio-antes">S/ 110.00</span> S/ 88.00</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto"><span class="etiqueta-descuento">-10%</span>✨</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Óleo Reflections Sublimador 100ml</div>
+                        <div class="ciudad-producto">Wella Professionals</div>
+                        <div class="precio-producto"><span class="precio-antes">S/ 135.00</span> S/ 121.50</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto"><span class="etiqueta-descuento">-25%</span>🍯</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Mascarilla All Soft Heavy Cream</div>
+                        <div class="ciudad-producto">Redken</div>
+                        <div class="precio-producto"><span class="precio-antes">S/ 160.00</span> S/ 120.00</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- PACKS & KITS -->
+        <section class="seccion-anuncios espaciado-seccion">
+            <div class="titulo-seccion">Packs & Kits de Salón</div>
+            <div class="grilla-anuncios">
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto"><span class="etiqueta-pack">PACK</span>🛍️</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Kit Absolut Repair (Champú + Máscara)</div>
+                        <div class="ciudad-producto">L'Oréal Professionnel</div>
+                        <div class="precio-producto">S/ 235.00</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto"><span class="etiqueta-pack">PACK</span>🛍️</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Pack Color Brilliance Cuidado Total</div>
+                        <div class="ciudad-producto">Wella Professionals</div>
+                        <div class="precio-producto">S/ 195.00</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto"><span class="etiqueta-pack">PACK</span>🛍️</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Dúo Extreme Fortalecedor Grande</div>
+                        <div class="ciudad-producto">Redken</div>
+                        <div class="precio-producto">S/ 270.00</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="contenedor-foto"><span class="etiqueta-pack">PACK</span>🛍️</div>
+                    <div class="datos-producto">
+                        <div class="nombre-producto">Kit Matizador e Iluminador Rubio</div>
+                        <div class="ciudad-producto">L'Oréal Professionnel</div>
+                        <div class="precio-producto">S/ 210.00</div>
+                        <button class="btn-agregar-carrito">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- PIE DE PÁGINA -->
+        <footer id="pie-pagina">
+            <div class="contenido-footer">
+                <p>&copy; 2026 ALTER-EGO. Todos los derechos reservados.</p>
+                <div class="enlaces-footer">
+                    <a href="#">Privacidad</a>
+                    <a href="#">Términos</a>
+                    <a href="#">Contacto</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+ 
+    <!-- MODAL LOGIN -->
+    <div id="modal-login-pantalla" class="modal-oculto-capa">
+        <div class="tarjeta-modal-login">
+            <button id="boton-cerrar-modal" class="cerrar-modal-x">×</button>
+            <div id="vista-iniciar-sesion">
+                <h2 class="modal-titulo">Ingresar a AlterEgo</h2>
+                <p class="modal-subtexto">Accede para gestionar tus compras capilares.</p>
+                <button class="btn-login-google">🌐 Continuar con Gmail</button>
+                <div class="divisor-linea"><span>o continuar con correo</span></div>
+                <form class="formulario-modal" onsubmit="return false;">
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <div class="opciones-recuerdame">
+                        <label class="contenedor-checkbox">
+                            <input type="checkbox" id="check-mantener-sesion"> Mantener cuenta abierta
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-principal-modal">Iniciar Sesión</button>
+                </form>
+                <p class="texto-cambio-vista">¿No tienes cuenta? <a href="#" id="enlace-ir-a-registro">Regístrate aquí</a></p>
+            </div>
+            <div id="vista-registrarse" class="vista-oculta">
+                <h2 class="modal-titulo">Crear Cuenta</h2>
+                <p class="modal-subtexto">Únete para recibir ofertas y registrar tus pedidos.</p>
+                <form class="formulario-modal" onsubmit="return false;">
+                    <input type="text" placeholder="Nombres y Apellidos" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Crea una contraseña" required>
+                    <button type="submit" class="btn-principal-modal">Registrarme</button>
+                </form>
+                <p class="texto-cambio-vista">¿Ya tienes cuenta? <a href="#" id="enlace-ir-a-login">Inicia sesión aquí</a></p>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- BOTÓN WHATSAPP -->
+    <a href="https://api.whatsapp.com/send?phone=51940246084&text=%C2%A1Hola!%20Deseo%20agendar%20una%20cita%20en%20la%20sede%20del%20El%20Polo%20-%20Surco." class="whatsapp-flotante" target="_blank">
+        <img src="./archivos/whatsapp.png" alt="WhatsApp">
+    </a>
+ 
+    <script src="./js/funciones.js"></script>
+   
+</body>
+</html>
